@@ -5,7 +5,6 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-const AppError = require("../utils/appError");
 
 // // enable CORS (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
 // // so that your API is remotely testable by FCC
@@ -16,8 +15,12 @@ app.use(cors({ optionsSuccessStatus: 200 })); // some legacy browsers choke on 2
 app.use(express.static("public"));
 
 //basic api route
+const path = require("path");
+
+// your route for serving index.html
 app.get("/", (req, res) => {
-  res.sendFile(`${__dirname}/views/index.html`);
+  const filePath = path.join(__dirname, "..", "views", "index.html");
+  res.sendFile(filePath);
 });
 
 //your first api end point
