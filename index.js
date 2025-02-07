@@ -32,6 +32,7 @@ app.get("/api/whomi", (req, res) => {
 
   if (ipAddress) {
     ipAddress = ipAddress.split(",")[0].trim();
+    ipAddress = ipAddress.replace(/^::ffff:/, ""); // Remove the IPv6 prefix
   }
 
   const language = req.headers["accept-language"];
