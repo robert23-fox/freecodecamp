@@ -49,7 +49,7 @@ app.all("*", (req, res, next) => {
 });
 
 //listen for requests :)
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 const server = app.listen(port, function () {
   console.log(`Yor app is listen to port ${port}...`);
 });
